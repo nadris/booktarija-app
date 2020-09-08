@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Book Tarija</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding"> 
+    <ion-grid >
+      <ion-row>
+        <ion-col size="6" *ngFor="let item of libros | async" >
+            <div class="libro" (click)="irdetallelibro(item.key)">
+              <p class="libro_titulo">{{item.nombre}}</p>
+              <img class="libro_img" src="{{item.img}}" alt="">
+              <p class="libro_autor">{{item.autor}}</p>
+              <ion-badge [ngStyle]="{'background-color':item.estado === 'disponible' ? 'green' : 'red' }">{{item.estado}}</ion-badge>
+            </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-content>

@@ -1,0 +1,18 @@
+.libro{
+    border-radius: 7px;
+    -webkit-box-shadow: 10px 10px 41px -5px rgba(194,190,194,0.61);
+-moz-box-shadow: 10px 10px 41px -5px rgba(194,190,194,0.61);
+box-shadow: 10px 10px 41px -5px rgba(194,190,194,0.61);
+padding: 7px;
+}
+.libro_titulo{
+    font-size: 12px;
+    font-weight: Bold;
+}
+.libro_autor{
+    font-size:12px;
+}
+.libro_img{
+    max-width: 100px;
+    max-height: 120px;
+}

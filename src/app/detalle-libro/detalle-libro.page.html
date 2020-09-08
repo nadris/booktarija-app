@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+   
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-title>
+          Detalle del libro
+      </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  {{ product.$key}}
+  <div>-------------------------------</div>
+  {{ product.nombre}}
+  <div>-------------------------------</div>
+  {{ product.autor}}
+
+  <img src="{{product.img}}" alt="">
+ 
+</ion-content>
