@@ -23,7 +23,6 @@ export class DetalleLibroPage implements OnInit {
     this.itemRef.snapshotChanges().subscribe(action => {
       const $key=action.key;
       this.product={$key,...action.payload.val()};
-
       console.log(this.product)
     });
 
