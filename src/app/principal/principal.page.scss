@@ -16,3 +16,51 @@ padding: 7px;
     max-width: 100px;
     max-height: 120px;
 }
+
+.color-whatsapp{
+    --background: #25D366 !important;
+}
+ion-fab-button{
+    ion-icon{
+        font-size:35px;
+    }
+}
+ion-fab{
+    animation: bounce 2s infinite;
+}
+@keyframes bounce{
+    0%,20%,50%,80%,100%{
+        transform:scale(1);
+    }
+    40%{
+        transform:scale(1.10);
+    }
+    60%{
+        transform:scale(1.20);
+    }
+}
+.banner{
+    height: 110px;
+    width: 100%;
+    padding: 7px 0 0 0;
+}
+ion-header{
+    h4{
+        font-weight: Bold;
+        font-size: 24px;
+        span{
+            font-weight: bold;
+            font-size: 24px;
+            color:rgba(118,0,252,1);
+        }
+    }
+    .titles{
+        padding: 0 1rem;
+    }
+    ion-searchbar{
+        --background:rgba(0,0,0,.04);
+        --box-shadow:none;
+        --border-radius:6px;
+    }
+
+}

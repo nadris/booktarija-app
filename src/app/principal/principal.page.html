@@ -1,20 +1,36 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Book Tarija</ion-title>
-  </ion-toolbar>
+<ion-header class="ion-no-border ion-padding">
+    <div class="titles">
+        <h4>
+            <span>BOOK</span> tarija
+        </h4>
+        <ion-card-subtitle>
+          Busca tu libro ideal y empieza a leerlo
+        </ion-card-subtitle>
+        <ion-searchbar class="ion-no-padding ion-padding-top" placeholder="Encuentra tu libro"></ion-searchbar>
+    </div>
+    <a href="{{publicidad.url}}">
+        <img src="{{publicidad.img}}" alt="" class="banner">
+    </a>
 </ion-header>
 
 <ion-content class="ion-padding"> 
     <ion-grid >
       <ion-row>
         <ion-col size="6" *ngFor="let item of libros | async" >
-            <div class="libro" (click)="irdetallelibro(item.key)">
+            <div class="libro" (click)="irpantalladetalle(item.key)">
               <p class="libro_titulo">{{item.nombre}}</p>
               <img class="libro_img" src="{{item.img}}" alt="">
               <p class="libro_autor">{{item.autor}}</p>
-              <ion-badge [ngStyle]="{'background-color':item.estado === 'disponible' ? 'green' : 'red' }">{{item.estado}}</ion-badge>
+              <ion-badge [ngStyle]="{'background-color': item.estado==='disponible' ? 'green' :'red'}">{{item.estado}}</ion-badge>
             </div>
         </ion-col>
       </ion-row>
     </ion-grid>
 </ion-content>
+<a href="https://wa.link/3fmseg">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button class="color-whatsapp">
+      <ion-icon name="chatbox-ellipses"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</a>

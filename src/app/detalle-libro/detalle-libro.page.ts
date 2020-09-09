@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute } from '@angular/router';
 
 import { AngularFireDatabase, AngularFireObject } from '@angular/fire/database';
 import { Observable } from 'rxjs';
-import {map} from 'rxjs/operators';
-
 
 @Component({
   selector: 'app-detalle-libro',
@@ -12,27 +10,25 @@ import {map} from 'rxjs/operators';
   styleUrls: ['./detalle-libro.page.scss'],
 })
 export class DetalleLibroPage implements OnInit {
-  id:string;
+  id: string;
   itemRef: AngularFireObject<any>;
   item: Observable<any>;
-  product :any = {};
-  constructor(private activatedRoute: ActivatedRoute,public db: AngularFireDatabase) {
-    this.id = this.activatedRoute.snapshot.paramMap.get("id");
-    console.log(this.id);
-    this.itemRef = db.object('libros/' + this.id);
-    this.itemRef.snapshotChanges().subscribe(action => {
-      const $key=action.key;
-      this.product={$key,...action.payload.val()};
-      console.log(this.product)
-    });
+  libro: any ={};
 
-    
-    // console.log(this.itemRef)
-    // this.itemRef.snapshotChanges().pipe(map(changes => {
-    //   return changes.payload.val()})).subscribe(p => this.product = p);
-    //   console.log(this.product)
+  constructor(private activatedRoute:ActivatedRoute,public db: AngularFireDatabase) { 
+    this.id=this.activatedRoute.snapshot.paramMap.get('id');
+    console.log(this.id);
+    this.itemRef = db.object('libros/'+ this.id);
+    this.itemRef.snapshotChanges().subscribe(action => {
+      // console.log(action.key)
+      // console.log(action.payload.val())
+      const $key = action.key;
+      this.libro = {$key, ...action.payload.val()}
+      console.log(this.libro);
+});
   }
-  ngOnInit(){
-    
+
+  ngOnInit() {
   }
+
 }
